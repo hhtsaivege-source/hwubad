@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醒吾科大企管系 🚀 培育未來商業領袖</title>
+    
+    <!-- 引入適合年輕人的圓潤字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"M PLUS Rounded 1c"', 'sans-serif'],
+                    },
+                    colors: {
+                        macaron: {
+                            pink: '#FFB3BA',
+                            orange: '#FFDFBA',
+                            yellow: '#FFFFBA',
+                            green: '#BAFFC9',
+                            blue: '#BAE1FF',
+                            purple: '#E8B4FF'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-word': 'bounceWord 1.5s infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        bounceWord: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-8px) scale(1.1)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            overflow-x: hidden;
+            background-color: #fafafa;
+        }
+
+        /* 關鍵字跳動特效 (高中生最愛的活潑感) */
+        .keyword-bounce {
+            display: inline-block;
+            animation: bounceWord 2s infinite ease-in-out;
+            color: #FF1493; /* 搶眼的螢光粉紅 */
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .keyword-bounce:hover {
+            color: #8A2BE2; /* hover變成紫色 */
+            transform: scale(1.2) rotate(5deg) !important;
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        /* 隱藏滾動條但保留功能 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFB3BA; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF9EAA; 
+        }
+
+        /* 滾動進入動畫 */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 數字心跳跳動特效 */
+        .number-beat {
+            display: inline-block;
+            animation: heartBeat 1.5s infinite;
+            transform-origin: center;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-card mx-4 my-3 rounded-full px-6 py-3 flex justify-between items-center shadow-lg">
+            <div class="font-extrabold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
+                <i class="fa-solid fa-rocket mr-2 text-pink-500"></i>醒吾企管
+            </div>
+            <div class="hidden md:flex space-x-6 font-bold text-gray-600">
+                <a href="#hero" class="hover:text-pink-500 transition">首頁介紹</a>
+                <a href="#dna" class="hover:text-blue-500 transition">課程亮點</a>
+                <a href="#features" class="hover:text-green-500 transition">四大特色</a>
+                <a href="#achievements" class="hover:text-yellow-500 transition">學長姐戰績</a>
+                <a href="#campus-life" class="hover:text-purple-500 transition">校園生活</a>
+            </div>
+            <a href="#join-us" class="bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold py-2 px-6 rounded-full hover:shadow-xl hover:scale-105 transition transform">
+                加入我們
+            </a>
+        </div>
+    </nav>
+
+    <!-- 開場白與自我介紹 -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-br from-macaron-pink via-macaron-orange to-macaron-yellow">
+        <!-- 背景裝飾 Blobs -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-40 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-4000"></div>
+
+        <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-10">
+            <div class="bg-white px-6 py-2 rounded-full font-bold text-pink-500 mb-6 shadow-md border-2 border-pink-200 animate-bounce">
+                🎉 Welcome to Hsing Wu BA
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-800 mb-6 leading-tight">
+                培育未來商業領袖的<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">實戰搖籃</span> 🌟
+            </h1>
+            
+            <div class="max-w-2xl glass-card rounded-[2rem] p-8 mt-4 shadow-2xl text-left fade-in-up">
+                <div class="flex items-center mb-4">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-inner">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">Hi，我是 蔡合和 博士 👋</h3>
+                        <p class="text-gray-500">醒吾科大企管系 導航員</p>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    很高興今天能帶領大家深入了解我們的學習地圖！在接下來的時間裡，我將為各位拆解大學四年的核心裝備，告訴大家如何在這裡從一名學生，蛻變為具備 <span class="keyword-bounce" style="animation-delay: 0s;">多元管理知能</span> 與 <span class="keyword-bounce" style="animation-delay: 0.5s;">實作能力</span> 的企業實戰人才！
+                </p>
+            </div>
+        </div>
+
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,197.36,112.5,239.5,107.81,280.46,87.6,321.39,56.44Z" fill="#BAFFC9"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第一單元：企管系的核心DNA與課程亮點 -->
+    <section id="dna" class="py-24 bg-macaron-green relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="bg-green-500 text-white px-4 py-1 rounded-full font-bold text-sm tracking-widest uppercase shadow-md">Unit 1</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">核心DNA與課程亮點 💡</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    面對高度資訊化與網路經濟爆發的時代，傳統管理學已經不夠了！為了縮短學用落差，我們極度強調 <span class="keyword-bounce" style="animation-delay: 0.2s;">實作化</span>！
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 左側卡片 -->
+                <div class="space-y-6 fade-in-up">
+                    <div class="bg-white rounded-[2rem] p-8 shadow-xl hover:-translate-y-2 transition duration-300 border-b-8 border-green-400">
+                        <div class="text-green-500 text-4xl mb-4"><i class="fa-solid fa-puzzle-piece"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">教學方法大進化</h3>
+                        <p class="text-gray-600 text-lg">
+                            我們導入了 <span class="keyword-bounce" style="animation-delay: 0.3s;">PBL 問題導向學習</span> 與微學分課程，帶領大家跳脫死板課本，真正做到「從做中學」！
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-[2rem] p-8 shadow-xl hover:-translate-y-2 transition duration-300 border-b-8 border-teal-400">
+                        <div class="text-teal-500 text-4xl mb-4"><i class="fa-solid fa-bolt"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">完美對接產業趨勢</h3>
+                        <p class="text-gray-600 text-lg">
+                            涵蓋電子商務實務、<span class="keyword-bounce" style="animation-delay: 0.7s;">數位行銷</span>、企劃案製作與商品企劃。這與業界企業轉型的趨勢完全一致：未來的管理人才，必須擁有 <span class="keyword-bounce" style="animation-delay: 0.1s;">數位工具應用</span> 與商業企劃的實戰力！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 右側視覺插圖 -->
+                <div class="relative fade-in-up">
+                    <div class="absolute inset-0 bg-yellow-200 rounded-[3rem] transform rotate-6 scale-105 shadow-lg"></div>
+                    <div class="relative bg-white rounded-[3rem] p-8 shadow-2xl flex flex-col items-center text-center">
+                        <img src="https://placehold.co/600x400/BAFFC9/000000?text=PBL+Learning+Map" alt="課程地圖" class="rounded-2xl mb-6 w-full object-cover shadow-sm h-48">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-2">大學四年裝備表</h4>
+                        <div class="flex flex-wrap gap-2 justify-center mt-4">
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold">#大數據分析</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-bold">#社群經營</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-bold">#創新提案</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold">#專案管理</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#BAE1FF"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第二單元：打造職場競爭力的四大特色 -->
+    <section id="features" class="py-24 bg-macaron-blue relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="bg-blue-500 text-white px-4 py-1 rounded-full font-bold text-sm tracking-widest uppercase shadow-md">Unit 2</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">打造職場競爭力的 <span class="text-blue-600">四大特色</span> 🎯</h2>
+                <p class="text-xl text-gray-600 mt-4">我們有四大核心策略來確保各位 <span class="keyword-bounce">畢業即就業</span>！</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 特色 1 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl text-center transform hover:-translate-y-4 hover:shadow-2xl transition duration-300 fade-in-up border-2 border-pink-200 group">
+                    <div class="w-20 h-20 bg-macaron-pink rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:scale-110 transition">
+                        <i class="fa-solid fa-handshake text-3xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">產學合作與業師協同</h3>
+                    <p class="text-gray-600">大量邀請業界專家來校演講，把最真實的商業戰場直接搬進教室。</p>
+                </div>
+
+                <!-- 特色 2 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl text-center transform hover:-translate-y-4 hover:shadow-2xl transition duration-300 fade-in-up border-2 border-yellow-200 group" style="transition-delay: 100ms;">
+                    <div class="w-20 h-20 bg-macaron-yellow rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:scale-110 transition">
+                        <i class="fa-solid fa-briefcase text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">落實實習與個案教學</h3>
+                    <p class="text-gray-600">大三下開始，符合資格就能申請校外實習，提早進入企業歷練，無縫接軌！</p>
+                </div>
+
+                <!-- 特色 3 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl text-center transform hover:-translate-y-4 hover:shadow-2xl transition duration-300 fade-in-up border-2 border-green-200 group" style="transition-delay: 200ms;">
+                    <div class="w-20 h-20 bg-macaron-green rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:scale-110 transition">
+                        <i class="fa-solid fa-medal text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">專業證照與競賽</h3>
+                    <p class="text-gray-600">專屬「證照培訓中心」，每學期開設輔導班，為你的履歷加上 <span class="keyword-bounce font-sm p-1">最強外掛</span>！</p>
+                </div>
+
+                <!-- 特色 4 -->
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl text-center transform hover:-translate-y-4 hover:shadow-2xl transition duration-300 fade-in-up border-2 border-purple-200 group" style="transition-delay: 300ms;">
+                    <div class="w-20 h-20 bg-macaron-purple rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:scale-110 transition">
+                        <i class="fa-solid fa-lightbulb text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">研發與創新能力</h3>
+                    <p class="text-gray-600">透過創意教室與實務專題，不只教你發想，更協助優質創意商品申請專利。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,197.36,112.5,239.5,107.81,280.46,87.6,321.39,56.44Z" fill="#E8B4FF"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第三單元：學長姐榮譽榜與實戰成果展示 -->
+    <section id="achievements" class="py-24 bg-macaron-purple relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="bg-purple-500 text-white px-4 py-1 rounded-full font-bold text-sm tracking-widest uppercase shadow-md">Unit 3</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">學長姐神級戰績 🏆</h2>
+                <p class="text-xl text-gray-700 mt-4">我們的規劃絕不是紙上談兵，來看看近期學長姐的傲人成績！</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+                <!-- 榮譽 1 -->
+                <div class="flex-1 bg-white rounded-[2rem] p-6 shadow-lg border-t-8 border-yellow-400 fade-in-up relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-yellow-100 text-9xl opacity-50"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="relative z-10">
+                        <div class="bg-yellow-100 text-yellow-800 font-bold px-3 py-1 rounded-full inline-block mb-4">外語 & 專業</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">專業英日文(ESP)大賽 冠軍 🥇</h3>
+                        <p class="text-gray-600">在第14屆全國專業英日文詞彙能力大賽中，成功拿下全國冠軍，語言與專業雙管齊下！</p>
+                    </div>
+                </div>
+
+                <!-- 榮譽 2 -->
+                <div class="flex-1 bg-white rounded-[2rem] p-6 shadow-lg border-t-8 border-pink-400 fade-in-up relative overflow-hidden" style="transition-delay: 150ms;">
+                    <div class="absolute -right-10 -top-10 text-pink-100 text-9xl opacity-50"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="relative z-10">
+                        <div class="bg-pink-100 text-pink-800 font-bold px-3 py-1 rounded-full inline-block mb-4">創新創業</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">全國創新創業競賽 雙料大獎 🚀</h3>
+                        <p class="text-gray-600">榮獲「林口盃全國創新創業競賽」<span class="keyword-bounce font-sm">全國第三名</span> 暨 <span class="keyword-bounce font-sm">最高人氣獎</span>，更在「少年頭家」競賽創下佳績！</p>
+                    </div>
+                </div>
+
+                <!-- 榮譽 3 -->
+                <div class="flex-1 bg-white rounded-[2rem] p-6 shadow-lg border-t-8 border-blue-400 fade-in-up relative overflow-hidden" style="transition-delay: 300ms;">
+                    <div class="absolute -right-10 -top-10 text-blue-100 text-9xl opacity-50"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div class="relative z-10">
+                        <div class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full inline-block mb-4">高額獎學金</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">實習菁英獎學金 💰</h3>
+                        <p class="text-gray-600">多位同學憑藉優異表現，獲得高達 <span class="font-extrabold text-blue-600 text-xl">3萬元</span> 的全校實習菁英獎學金與僑委會獎助學金。這就是你的挑戰目標！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#2d3748"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第四單元：校園生活與絕對優勢 -->
+    <section id="campus-life" class="py-24 bg-[#EAF7E3] relative">
+        <div class="container mx-auto px-4">
+            
+            <!-- 絕美校園 -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-24 fade-in-up">
+                <div class="md:w-1/2 text-left">
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-[#4CAF50] mb-6 leading-tight">絕美校園<br>深呼吸～</h2>
+                    <div class="bg-white rounded-3xl p-6 shadow-lg border-2 border-green-100 inline-block">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">🍃 森林系大學體驗</h3>
+                        <p class="text-gray-600 text-lg">校園風景美到像渡假，空氣超清新！<br>每天上學都能擁有好心情！</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-green-200 rounded-[3rem] transform -rotate-3 scale-105 shadow-lg"></div>
+                    <img src="ALVA00_P_03_02.jpg" alt="絕美校園" class="relative z-10 rounded-[3rem] shadow-2xl w-full border-8 border-white">
+                </div>
+            </div>
+
+            <!-- 超狂課表 -->
+            <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-12 mb-24 fade-in-up">
+                <div class="md:w-1/2 text-center md:text-left relative">
+                   <h2 class="text-4xl md:text-5xl font-extrabold text-[#D4A373] mb-4">超狂課表大公開！</h2>
+                   <div class="flex items-center justify-center md:justify-start gap-4 mb-6">
+                       <span class="text-5xl md:text-6xl font-bold text-gray-700">每週只要上課</span>
+                       <span class="text-8xl md:text-9xl font-extrabold text-[#F28482] number-beat drop-shadow-lg">3</span>
+                       <span class="text-5xl md:text-6xl font-bold text-gray-700">天！</span>
+                   </div>
+                   <div class="bg-[#F4A261] text-white rounded-full py-3 px-8 inline-flex items-center shadow-md transform -rotate-2">
+                       <span class="font-bold text-lg">時間自由支配！打工、玩樂、談戀愛通通來！ 😎</span>
+                   </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="image_4a2ebb.jpg" alt="超狂課表 3 天" class="w-full max-w-md mx-auto rounded-[3rem] shadow-xl hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,197.36,112.5,239.5,107.81,280.46,87.6,321.39,56.44Z" fill="#EBF4FA"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第五單元：就業與師資 -->
+    <section class="py-24 bg-[#EBF4FA] relative">
+        <div class="container mx-auto px-4">
+            
+            <!-- 畢業即戰力 -->
+            <div class="text-center mb-24 fade-in-up relative">
+                <div class="absolute top-0 right-10 md:right-32 text-blue-300 text-5xl animate-float"><i class="fa-solid fa-rocket"></i></div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-[#5C6BC0] mb-8">畢業即戰力，老闆搶著要！</h2>
+                <div class="flex justify-center items-end gap-2 mb-8">
+                    <span class="text-[8rem] md:text-[12rem] font-extrabold text-[#F4A261] leading-none drop-shadow-xl number-beat" style="text-shadow: 6px 6px 0px #cbd5e1;">100</span>
+                    <span class="text-[5rem] md:text-[8rem] font-extrabold text-[#F4A261] leading-none drop-shadow-xl" style="text-shadow: 4px 4px 0px #cbd5e1;">%</span>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-[#3949AB] mb-4">超狂就業率保證！</h3>
+                <p class="text-xl text-gray-600">產學合作超給力，讓你畢業直接無縫接軌職場 💼</p>
+            </div>
+
+            <!-- 神仙師資 -->
+            <div class="fade-in-up bg-[#F3E5F5] rounded-[3rem] p-10 md:p-16 shadow-2xl relative">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-[#8E24AA]">神仙師資 × 溫馨大家庭</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-[2rem] p-8 shadow-md relative mt-8 md:mt-0">
+                        <div class="absolute -top-8 -left-6 w-16 h-16 bg-[#CE93D8] rounded-full flex items-center justify-center text-3xl shadow-lg border-4 border-white">
+                            👩‍🏫
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#6A1B9A] mb-4 text-center">老師超 NICE</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            沒有死板的教授，只有把你當朋友的導師！有問必答，關心你的學習與生活，像家人一樣溫暖！
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-8 shadow-md relative mt-8 md:mt-0">
+                        <div class="absolute -top-8 -right-6 w-16 h-16 bg-[#F48FB1] rounded-full flex items-center justify-center text-3xl shadow-lg border-4 border-white">
+                            🎉
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#AD1457] mb-4 text-center">系上氣氛超 High</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            迎新、系烤、各式活動接連不斷！學長姐超熱情，在這裡你絕對不會是一個人，大學四年嗨翻天！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部波浪分隔線 -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#FCE4EC"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第六單元：加入我們 -->
+    <section id="join-us" class="py-24 bg-[#FCE4EC] relative">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-[#D81B60] mb-4 fade-in-up">加入我們就是現在！</h2>
+            <p class="text-xl text-gray-700 mb-12 fade-in-up">拿出手機，掃描下方 QR Code 填寫就學意願表 👇</p>
+            
+            <div class="fade-in-up flex justify-center mb-8">
+                <div class="bg-white p-4 rounded-3xl shadow-2xl transform hover:scale-105 transition duration-300">
+                    <img src="就學意願表.png" alt="Scan me QR Code" class="w-64 h-auto object-cover rounded-2xl">
+                </div>
+            </div>
+
+            <div class="text-[#D81B60] font-bold text-xl fade-in-up">
+                <p>醒吾科技大學 企業管理系</p>
+                <p>期待你的加入 ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第七單元：結語與未來職涯進路 -->
+    <section id="future" class="py-24 bg-gray-800 text-white relative">
+        <div class="container mx-auto px-4 text-center">
+            <span class="bg-gray-600 text-white px-4 py-1 rounded-full font-bold text-sm tracking-widest uppercase shadow-md fade-in-up">Unit 4 & Conclusion</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-6 mb-8 fade-in-up">你的未來，從這裡開始發光 ✨</h2>
+            
+            <div class="max-w-4xl mx-auto glass-card bg-gray-700/50 rounded-[2rem] p-8 md:p-12 shadow-2xl fade-in-up border-0">
+                <i class="fa-solid fa-map-location-dot text-5xl text-yellow-400 mb-6 animate-float"></i>
+                <p class="text-xl md:text-2xl leading-relaxed mb-6">
+                    企管系已順利通過大專校院教學品保服務計畫，教學品質有目共睹。<br>
+                    我們的教育目標，是培養具備 <span class="text-yellow-300 font-bold">國際觀</span>、擁有 <span class="text-pink-300 font-bold">實務解決能力</span> 的專業經理人。
+                </p>
+                <div class="bg-gray-800 rounded-2xl p-6 my-8 flex flex-col md:flex-row justify-around items-center gap-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-2"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="font-bold">專案經理</div>
+                    </div>
+                    <div class="hidden md:block text-gray-500"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-2"><i class="fa-solid fa-bullhorn"></i></div>
+                        <div class="font-bold">行銷企劃</div>
+                    </div>
+                    <div class="hidden md:block text-gray-500"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-2"><i class="fa-solid fa-store"></i></div>
+                        <div class="font-bold">創業家/店長</div>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300">
+                    希望大家善用系上資源，從大一開始規劃學習地圖。<br>這 30 分鐘只是一個開端，期待在未來的課程與實務專題中，看到各位 <span class="keyword-bounce text-yellow-300 !bg-transparent !shadow-none">發光發熱</span>！
+                </p>
+                
+                <button class="mt-10 bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-extrabold text-xl py-4 px-10 rounded-full shadow-lg transform hover:scale-110 transition duration-300 animate-pulse">
+                    加入我們！開啟實戰旅程 🚀
+                </button>
+            </div>
+        </div>
+
+        <footer class="mt-20 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 醒吾科技大學企業管理系. Designed for Future Business Leaders.</p>
+        </footer>
+    </section>
+
+    <!-- 滾動動畫與互動 JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 監聽滾動動畫
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // 讓進入視窗後的元素停止觀察，只動畫一次
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // 導覽列滾動效果 (往下滑動時增加透明度與毛玻璃效果)
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2');
+                } else {
+                    navbar.classList.remove('py-2');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
